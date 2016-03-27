@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+#require "pixel_picker"
+require 'pixel_picker/color_name'
+
+image_file = ARGV[0]
+if image_file.nil?
+  puts 'File not given'
+elsif FileTest.exist?(image_file)
+  puts PixelPicker::ColorName.new(image_file).max
+end
